@@ -1,34 +1,50 @@
 #include <iostream>
 
-int main() {
+void PrintIntroduction()
+{
     // print welcome message to terminal 
-    std::cout << "Hello there traveler...";
-    std::cout << std::endl;
-    std::cout << "You need to answer correctly to continue on your journey...";
-    
+    std::cout << "Hello there traveler... \n";
+    std::cout << "You need to answer correctly to continue on your journey... \n\n";
+}
+
+void PlayGame()
+{   
+
+    PrintIntroduction();
+
     // declare 3 number code 
     const int CodeA = 4;
     const int CodeB = 3;
     const int CodeC = 2;
 
-    int sum = CodeA + CodeB + CodeC;
-    int product = CodeA * CodeB * CodeC;
+    int CodeSum = CodeA + CodeB + CodeC;
+    int CodeProduct = CodeA * CodeB * CodeC;
 
     // print sum and product to terminal 
-    std::cout << std::endl;
-    std::cout << "+ There are 3 numbers in the problem" << std::endl;
-    std::cout << "+ The numbers add up to " << sum << std::endl;
-    std::cout << "+ The product comes out to " << product << std::endl;
+    std::cout << "+ There are 3 numbers in the problem";
+    std::cout << "\n+ The numbers add up to " << CodeSum;
+    std::cout << "\n+ The product comes out to " << CodeProduct << std::endl;
 
-    // users can answer with guesses on the same line w/ spaces or different lines 
+    // Store user guesses -- users can answer with guesses on the same line w/ spaces or different lines 
     int GuessA, GuessB, GuessC;
-    std::cin >> GuessA;
-    std::cin >> GuessB;
-    std::cin >> GuessC;
-    std::cout << "You entered: " << GuessA << GuessB << GuessC;
+    std::cin >> GuessA >> GuessB >> GuessC;
 
     int GuessSum = GuessA + GuessB + GuessC;
     int GuessProduct = GuessA * GuessB * GuessC;
 
+    // Check if player guesses are correct
+    if (GuessSum == CodeSum && GuessProduct == CodeProduct) 
+    {
+        std::cout << "\nYou got it, you may continue on your journey";
+    } 
+    else 
+    {
+        std::cout << "\nYour journey ends here";
+    }
+
+}
+
+int main() {
+    PlayGame();
     return 0;
 }
