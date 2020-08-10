@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 
 void PrintIntroduction(int Difficulty)
 {
@@ -13,9 +14,9 @@ bool PlayGame(int Difficulty)
     PrintIntroduction(Difficulty);
 
     // declare 3 number code 
-    const int CodeA = 4;
-    const int CodeB = 3;
-    const int CodeC = 2;
+    const int CodeA = rand() % Difficulty + Difficulty;
+    const int CodeB = rand() % Difficulty + Difficulty;
+    const int CodeC = rand() % Difficulty + Difficulty;
 
     int CodeSum = CodeA + CodeB + CodeC;
     int CodeProduct = CodeA * CodeB * CodeC;
@@ -40,7 +41,7 @@ bool PlayGame(int Difficulty)
     } 
     else 
     {
-        std::cout << "\nYour journey ends here";
+        std::cout << "\nYour may not continue on your journey. Try again if you wish to continue...";
         return false;
     }
 
@@ -48,8 +49,11 @@ bool PlayGame(int Difficulty)
 
 int main() 
 {
+    srand(time(NULL)); // create new random sequence based on time of day
     int LevelDifficulty = 1;
-    while(true)
+    int MaxDifficulty = 7; 
+
+    while (LevelDifficulty <= MaxDifficulty) // loop until all levels are completed
     {
         bool LevelComplete = PlayGame(LevelDifficulty);
         std::cin.clear(); // clears any errors
@@ -61,8 +65,7 @@ int main()
         ++LevelDifficulty;
     }
 
-
     }
-
+    std::cout << "\nCongratulations! You made it to your destination\n";
     return 0;
 }
