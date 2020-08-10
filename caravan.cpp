@@ -7,18 +7,28 @@ int main() {
     std::cout << "You need to answer correctly to continue on your journey...";
     
     // declare 3 number code 
-    int a = 4;
-    int b = 3;
-    int c = 2;
+    const int CodeA = 4;
+    const int CodeB = 3;
+    const int CodeC = 2;
 
-    int sum = a + b + c;
-    int product = a * b * c;
+    int sum = CodeA + CodeB + CodeC;
+    int product = CodeA * CodeB * CodeC;
 
     // print sum and product to terminal 
     std::cout << std::endl;
     std::cout << "+ There are 3 numbers in the problem" << std::endl;
     std::cout << "+ The numbers add up to " << sum << std::endl;
-    std::cout << product << std::endl;
+    std::cout << "+ The product comes out to " << product << std::endl;
+
+    // users can answer with guesses on the same line w/ spaces or different lines 
+    int GuessA, GuessB, GuessC;
+    std::cin >> GuessA;
+    std::cin >> GuessB;
+    std::cin >> GuessC;
+    std::cout << "You entered: " << GuessA << GuessB << GuessC;
+
+    int GuessSum = GuessA + GuessB + GuessC;
+    int GuessProduct = GuessA * GuessB * GuessC;
 
     return 0;
 }
