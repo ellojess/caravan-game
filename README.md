@@ -1,5 +1,5 @@
 # Caravan
-Caravan is a math-based riddle game that takes users on an increasingly difficult journey to get to their destination 
+Caravan is an action/adventure math-based riddle game that takes users on an increasingly difficult journey to get to their destination 
 
 ## Installation
 
